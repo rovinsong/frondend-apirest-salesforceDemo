@@ -1,0 +1,42 @@
+:root {
+  --color-primary: #EEBD2C;
+  --color-dark: #222221;
+  --color-gray-dark: #383C43;
+}
+
+.inicio-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-dark);
+  padding: 1rem;
+}
+
+.inicio-panel {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--color-gray-dark);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  color: white;
+}
+
+.menu-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: var(--color-dark);
+  font-weight: 600;
+  background-color: var(--color-primary);
+  transition: background 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: #d5a710;
+}
