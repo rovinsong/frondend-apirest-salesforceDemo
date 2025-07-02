@@ -1,9 +1,9 @@
 // src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import HomePage from './pages/HomePage';
-import AccountsPage from './pages/AccountsPage';
-import ContactPage from './pages/ContactPage';
+import Home from './pages/Home';
+import Accounts from './pages/Accounts';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -12,9 +12,9 @@ function App() {
         <Navbar />
         <main className="flex-grow flex justify-center items-start p-6">
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/accounts" element={<AccountsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/accounts" element={<Accounts />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
       </div>
