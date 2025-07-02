@@ -5,6 +5,9 @@ import React from "react";
 
 function InicioPage() {
   const navigate = useNavigate();
+  <h1 className="text-3xl font-bold underline text-blue-600">
+  ¡Tailwind está funcionando!
+</h1>
 
   return (
     <div className="min-h-screen bg-[#F9FAFB] flex items-center justify-center px-4">
