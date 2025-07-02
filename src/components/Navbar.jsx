@@ -1,27 +1,20 @@
-// src/components/Navbar.jsx
 import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
   const location = useLocation();
 
-  const navItem = (to, label) => (
-    <Link
-      to={to}
-      className={`px-4 py-2 rounded ${
-        location.pathname === to ? 'text-blue-400' : 'text-white'
-      } hover:text-blue-300`}
-    >
-      {label}
-    </Link>
-  );
+  const linkClass = (path) =>
+    `px-4 py-2 rounded-md text-sm font-medium ${
+      location.pathname === path ? 'bg-blue-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+    }`;
 
   return (
-    <nav className="bg-gray-800 px-6 py-4 shadow-md flex justify-between items-center">
-      <span className="font-bold text-xl">Salesforce Demo</span>
+    <nav className="bg-gray-900 shadow-md px-6 py-4 flex justify-between items-center">
+      <h1 className="text-white font-bold text-xl">Salesforce Demo</h1>
       <div className="flex space-x-4">
-        {navItem('/', 'Inicio')}
-        {navItem('/accounts', 'Cuentas')}
-        {navItem('/contact', 'Contáctanos')}
+        <Link to="/" className={linkClass('/')}>Inicio</Link>
+        <Link to="/accounts" className={linkClass('/accounts')}>Cuentas</Link>
+        <Link to="/contact" className={linkClass('/contact')}>Contáctanos</Link>
       </div>
     </nav>
   );
