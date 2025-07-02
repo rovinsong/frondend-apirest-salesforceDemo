@@ -1,22 +1,13 @@
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Accounts from './pages/Accounts';
-import Contact from './pages/Contact';
-import BottomNav from './components/BottomNav';
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div>
-      <div className="w-full">
-        <BottomNav />
-      </div>
-      <div className="flex-grow flex justify-center items-center">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/accounts" element={<Accounts />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </div>
+    <div className="min-h-screen flex flex-col bg-gray-900 text-white">
+      <Navbar />
+      <main className="flex-grow flex items-center justify-center p-6">
+        <Outlet />
+      </main>
     </div>
   );
 }
