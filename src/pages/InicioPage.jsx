@@ -17,31 +17,17 @@ function InicioPage() {
         </h2>
 
         <div className="flex flex-col gap-4">
-          <Button
-            label="📘 Cursos"
-            className="bg-[#EEBD2C] text-[#222221] hover:bg-yellow-400"
-            onClick={() => navigate("/cursos")}
-          />
-          <Button
-            label="👥 Estudiantes"
-            className="bg-[#383C43] text-white hover:bg-[#2f3238]"
-            onClick={() => navigate("/estudiantes")}
-          />
-          <Button
-            label="📝 Asistencia"
-            className="bg-green-500 hover:bg-green-600"
-            onClick={() => navigate("/asistencia")}
-          />
-          <Button
-            label="📊 Historial"
-            className="bg-blue-500 hover:bg-blue-600"
-            onClick={() => navigate("/historial")}
-          />
-          <Button
-            label="📤 Cargar Estudiantes"
-            className="bg-orange-400 text-black hover:bg-orange-500"
-            onClick={() => navigate("/cargar-estudiantes")}
-          />
+              <Button
+                label="👤 Cuentas"
+                className="bg-[#E0E0E0] text-[#222222] hover:bg-blue-300"
+                onClick={() => navigate("/cuentas")}
+              />
+
+              <Button
+                label="✉️ Contáctanos"
+                className="bg-[#FFD54F] text-[#222222] hover:bg-yellow-500"
+                onClick={() => navigate("/contacto")}
+              />
         </div>
       </Card>
     </div>
