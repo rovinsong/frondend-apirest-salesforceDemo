@@ -1,5 +1,5 @@
 // src/App.jsx
-import Accounts from './components/Accounts';
+import Accounts from './pages/Accounts';
 
 function App() {
   return (
