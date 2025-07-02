@@ -1,62 +1,44 @@
-import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
-import Home from "./pages/Home";
-import Accounts from "./pages/Accounts";
-import Contact from "./pages/Contact";
-
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import HomeIcon from "@mui/icons-material/Home";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import ContactMailIcon from "@mui/icons-material/ContactMail";
-
-import { useEffect, useState } from "react";
+import { useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { BottomNavigation, BottomNavigationAction } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import Home from './pages/Home';
+import Accounts from './pages/Accounts';
+import Contact from './pages/Contact';
 
 function App() {
+  const [value, setValue] = useState(0);
   const navigate = useNavigate();
-  const location = useLocation();
 
-  const pathToIndex = {
-    "/": 0,
-    "/accounts": 1,
-    "/contact": 2,
+  const handleNavigation = (event, newValue) => {
+    setValue(newValue);
+    if (newValue === 0) navigate('/');
+    if (newValue === 1) navigate('/accounts');
+    if (newValue === 2) navigate('/contact');
   };
 
-  const indexToPath = ["/", "/accounts", "/contact"];
-  const [value, setValue] = useState(pathToIndex[location.pathname] || 0);
-
-  useEffect(() => {
-    navigate(indexToPath[value]);
-  }, [value]);
-
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col">
-      {/* Menú arriba */}
-      <BottomNavigation
-        showLabels
-        value={value}
-        onChange={(event, newValue) => setValue(newValue)}
-        sx={{
-          backgroundColor: "#1f2937",
-          color: "#fff",
-          ".Mui-selected": {
-            color: "#60a5fa",
-          },
-        }}
-      >
-        <BottomNavigationAction label="Inicio" icon={<HomeIcon />} />
-        <BottomNavigationAction label="Cuentas" icon={<AccountBoxIcon />} />
-        <BottomNavigationAction label="Contáctanos" icon={<ContactMailIcon />} />
-      </BottomNavigation>
+    <div className="app-container">
+      <header className="nav-container">
+        <BottomNavigation
+          value={value}
+          onChange={handleNavigation}
+          showLabels
+        >
+          <BottomNavigationAction label="Inicio" icon={<HomeIcon />} />
+          <BottomNavigationAction label="Cuentas" icon={<AccountBoxIcon />} />
+          <BottomNavigationAction label="Contáctanos" icon={<ContactMailIcon />} />
+        </BottomNavigation>
+      </header>
 
-      {/* Contenido centrado */}
-      <main className="flex-grow flex justify-center items-center p-6">
-        <div className="w-full max-w-5xl text-center">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/accounts" element={<Accounts />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </div>
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/accounts" element={<Accounts />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </main>
     </div>
   );
