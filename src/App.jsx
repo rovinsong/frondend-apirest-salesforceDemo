@@ -5,9 +5,10 @@ import Contact from "./pages/Contact";
 
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import RestoreIcon from "@mui/icons-material/Home";
-import FavoriteIcon from "@mui/icons-material/AccountBox";
-import LocationOnIcon from "@mui/icons-material/ContactMail";
+import HomeIcon from "@mui/icons-material/Home";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
+
 import { useEffect, useState } from "react";
 
 function App() {
@@ -21,7 +22,6 @@ function App() {
   };
 
   const indexToPath = ["/", "/accounts", "/contact"];
-
   const [value, setValue] = useState(pathToIndex[location.pathname] || 0);
 
   useEffect(() => {
@@ -29,18 +29,8 @@ function App() {
   }, [value]);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col justify-between">
-      <main className="p-6 flex-grow flex justify-center">
-        <div className="w-full max-w-5xl">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/accounts" element={<Accounts />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </div>
-      </main>
-
-      {/* Menú de navegación */}
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col">
+      {/* Menú arriba */}
       <BottomNavigation
         showLabels
         value={value}
@@ -53,10 +43,21 @@ function App() {
           },
         }}
       >
-        <BottomNavigationAction label="Inicio" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Cuentas" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Contáctanos" icon={<LocationOnIcon />} />
+        <BottomNavigationAction label="Inicio" icon={<HomeIcon />} />
+        <BottomNavigationAction label="Cuentas" icon={<AccountBoxIcon />} />
+        <BottomNavigationAction label="Contáctanos" icon={<ContactMailIcon />} />
       </BottomNavigation>
+
+      {/* Contenido centrado */}
+      <main className="flex-grow flex justify-center items-center p-6">
+        <div className="w-full max-w-5xl text-center">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/accounts" element={<Accounts />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+      </main>
     </div>
   );
 }
