@@ -1,3 +1,4 @@
+/* global process */
 import React, { useEffect, useState } from "react";
 import { Card } from "primereact/card";
 import { Panel } from "primereact/panel";
@@ -7,15 +8,13 @@ import { useNavigate } from "react-router-dom";
 function CuentasPage() {
   const [cuentas, setCuentas] = useState([]);
   const navigate = useNavigate();
-  const API = import.meta.env.VITE_API_URL;
-
+  const API = process.env.REACT_APP_API_URL; // <— CORREGIDO
 
   const obtenerCuentas = async () => {
     try {
       console.log("API URL:", API);
       const res = await fetch(`${API}/accounts`);
       const json = await res.json();
-      // extrae el array de records
       setCuentas(json.records || []);
     } catch (error) {
       console.error("Error al obtener cuentas:", error);
