@@ -60,6 +60,8 @@ function CuentasPage() {
                 <h3 className="font-bold text-lg">{cuenta.Name}</h3>
                 <p>📞 {cuenta.Phone || "N/A"}</p>
                 <p>🌐 {cuenta.Website || "N/A"}</p>
+                <p> {cuenta.Type || "N/A"}</p>
+                <p> {cuenta.Razon_social__c || "N/A"}</p>                
               </Card>
             ))}
           </div>
