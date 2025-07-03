@@ -16,8 +16,6 @@ function InicioPage() {
         alt="Descripción de la imagen"
         className="mb-6 w-48 h-auto"
       />
-
-
       <h1 className="text-5xl font-bold mb-4">Bienvenido a Salesforce Demo</h1>
       <p className="text-gray-700 text-lg">
         Usa el menú superior para navegar entre Inicio, Cuentas y Contáctanos.
