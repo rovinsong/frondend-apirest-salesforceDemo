@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from 'frontend/public/logoManuelita.png'; 
+import logo from '../assets/logoManuelita.png'; 
 
 export default function Navbar() {
   const location = useLocation();
